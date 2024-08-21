@@ -1,0 +1,251 @@
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e0e7ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    width: 90%;
+    height: auto; /* Adjust height to fit content */
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+    font-size: 28px; /* Adjusted font size */
+    margin-bottom: 20px; /* Reduced margin */
+    color: #1a73e8;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#status {
+    font-size: 16px; /* Adjusted font size */
+    color: #5f6368;
+    margin-bottom: 20px; /* Reduced margin */
+}
+
+#connection-progress {
+    margin-bottom: 20px;
+}
+
+#connection-bar {
+    width: 100%;
+    height: 8px; /* Reduced height */
+    border-radius: 8px;
+    background-color: #e3f2fd;
+    position: relative;
+    overflow: hidden;
+}
+
+#connection-progress-bar {
+    height: 100%;
+    background-color: #1a73e8;
+    width: 0;
+    transition: width 0.3s;
+}
+
+#connection-status-text {
+    font-size: 14px; /* Adjusted font size */
+    color: #1a73e8;
+    margin-top: 5px; /* Reduced margin */
+}
+
+#room-info {
+    margin-bottom: 20px;
+}
+
+button, #reveal-btn, #send-btn, #toggle-files-btn {
+    background: linear-gradient(135deg, #1a73e8, #0c66c2);
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px; /* Adjusted padding */
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px; /* Adjusted font size */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    display: block;
+    width: 100%;
+    max-width: 200px; /* Adjusted max-width */
+    margin: 10px auto; /* Center horizontally */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+button:hover, #reveal-btn:hover, #send-btn:hover, #toggle-files-btn:hover {
+    background: linear-gradient(135deg, #0c66c2, #1a73e8);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#share-info {
+    margin-top: 20px;
+}
+
+#room-link {
+    font-size: 14px; /* Adjusted font size */
+    color: #1a73e8;
+}
+
+#room-link-url {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#room-link-url:hover {
+    text-decoration: underline;
+}
+
+#qr-code {
+    margin: 20px auto; /* Center horizontally */
+    padding: 10px; /* Adjusted padding */
+    background-color: #f1f3f4;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block; /* Ensure the QR code is treated as an inline element to center it */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Center the Connected Users section */
+#connected-users {
+    width: 100%; /* Ensure it takes full width of the container */
+    margin-top: 20px; /* Add some space above */
+    text-align: center; /* Center text and inline elements */
+}
+
+/* Styles for the header and list */
+#connected-users h2 {
+    font-size: 20px; /* Font size for the section header */
+    margin-bottom: 10px; /* Space below the header */
+    color: #1a73e8; /* Match the color scheme */
+}
+
+#connected-users ul {
+    padding: 0;
+    margin: 0;
+    list-style: none; /* Remove default bullets */
+}
+
+#connected-users li {
+    margin: 10px 0; /* Adjust margin for list items */
+    text-align: center; /* Center text for each list item */
+}
+
+/* List Reset */
+ul, ol {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin: 10px 0; /* Adjust margin for list items */
+    text-align: left; /* Align text to left */
+}
+
+/* Received Files Section */
+#received-files {
+    width: 90%; /* Adjust width for responsiveness */
+    max-width: 300px; /* Ensure maximum width */
+    max-height: 70vh;
+    overflow-y: auto;
+    position: fixed;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the container */
+    border: 1px solid #e0e7ff;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+#received-files h2 {
+    font-size: 20px;
+    margin-top: 0;
+    color: #1a73e8;
+}
+
+/* Close Button for Received Files */
+#close-files-btn {
+    background: none;
+    border: none;
+    font-size: 25px; /* Font size for the X */
+    color: #888;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    line-height: 1; /* Ensures no extra space around the X */
+    width: auto; /* Automatically adjust the button width to fit the X */
+    height: auto; /* Automatically adjust the button height to fit the X */
+    padding: 0; /* Remove any padding */
+    margin: 0; /* Remove any margin */
+}
+
+#close-files-btn:hover {
+    color: #333;
+}
+
+
+/* Progress Bar Styles */
+#upload-progress {
+    margin-top: 20px;
+}
+
+#progress-container {
+    width: 100%;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e7ff;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#progress-fill {
+    height: 100%;
+    background-color: #1a73e8;
+    width: 0;
+    transition: width 0.2s;
+}
+
+#progress-text {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+#upload-speed {
+    font-size: 14px;
+    color: #5f6368;
+}

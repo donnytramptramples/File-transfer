@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Transfer App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to the favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <h1>File Transfer App</h1>
+
+        <!-- Spinner for loading animation -->
+        <div id="loading-spinner" class="spinner hidden"></div>
+
+        <!-- Connection progress bar -->
+        <div id="connection-progress" class="hidden">
+            <div id="connection-bar">
+                <div id="connection-progress-bar"></div>
+            </div>
+            <div id="connection-status-text">Connecting...</div>
+        </div>
+
+        <div id="status" class="status">Connecting...</div>
+
+        <div id="room-info">
+            <button id="reveal-btn">Show Room Details</button>
+
+            <div id="share-info" class="hidden">
+                <p id="room-link">Share this link to join the room: <a id="room-link-url" href="#" target="_blank"></a></p>
+                <div id="qr-code"></div>
+            </div>
+
+            <!-- File input and send button -->
+            <input type="file" id="file-input">
+            <button id="send-btn" class="btn">Send File</button>
+
+            <!-- Upload Progress Section -->
+            <div id="upload-progress" class="hidden">
+                <div id="progress-container">
+                    <div id="progress-bar">
+                        <div id="progress-fill"></div>
+                    </div>
+                    <div id="progress-text">0 MB of 0 MB (0%)</div>
+                    <div id="upload-speed">Speed: 0 MB/s</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section for connected users -->
+        <div id="connected-users" class="connected-users hidden">
+            <h2>Connected Users</h2>
+            <ul id="user-list"></ul>
+        </div>
+
+        <!-- Toggle Button for Mobile -->
+        <button id="toggle-files-btn" class="btn">Show Received Files</button>
+
+        <div id="received-files" class="hidden">
+            <button id="close-files-btn" aria-label="Close">×</button>
+            <h2>Received Files</h2>
+        </div>
+    </div>
+
+    <!-- Include the QRCode.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <!-- Include the Socket.IO client library -->
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- Include your custom script -->
+    <script src="script.js"></script>
+</body>
+</html>
